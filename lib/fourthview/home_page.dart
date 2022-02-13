@@ -1,5 +1,6 @@
 import 'package:doctor_online/models/notification.dart';
 import 'package:doctor_online/routes/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,8 @@ import 'package:get/get.dart';
 
 
 class HomePage extends StatefulWidget {
-const HomePage ({Key? key}):super(key:key);
+  const HomePage ({Key? key}):super(key:key);
+
 
 @override
 State<HomePage> createState() => _HomePageState();
@@ -21,6 +23,7 @@ class _HomePageState extends State<HomePage>{
 
    @override
   void initState() {
+
     final firebaseMessaging = FCM();
     firebaseMessaging.setNotifications();
 
@@ -36,13 +39,14 @@ class _HomePageState extends State<HomePage>{
   _changeTitle(String msg) => setState(() => notificationTitle = msg);
   @override
   Widget build(BuildContext context) {
+    final _auth = FirebaseAuth.instance;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: null,
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 60),
+            const Expanded(child:SizedBox(height: 60),),
             Expanded(
               child: GestureDetector(
                 child: Row(
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("CHANNEL A DOCTOR\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                            const Text("CHANNEL A DOCTOR\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                             Image.asset(
                               'assets/images/doctor.png',
                               scale: 11,
@@ -79,7 +83,7 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("CONTACT A HOSPITAL\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                            const Text("CONTACT A HOSPITAL\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                             Image.asset(
                               'assets/images/hospital.png',
                               scale: 10,
@@ -105,7 +109,7 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("CALL 1990\n",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+                            const Text("CALL 1990\n",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
                             Image.asset(
                               'assets/images/phone.png',
                               scale: 8,
@@ -131,7 +135,7 @@ class _HomePageState extends State<HomePage>{
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("GO BACK\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                            const Text("GO BACK\n",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                             Image.asset(
                               'assets/images/back.png',
                               scale: 30,
@@ -143,6 +147,7 @@ class _HomePageState extends State<HomePage>{
                   ],
                 ),
                 onTap: () {
+                  _auth.signOut();
                   Get.offAndToNamed(Routes.login);
                 },
               ),

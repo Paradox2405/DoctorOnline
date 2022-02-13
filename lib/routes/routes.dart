@@ -2,16 +2,16 @@
 import 'package:doctor_online/channeldoctor/channel_doctor.dart';
 import 'package:doctor_online/contacthospital/contacthospital_page.dart';
 import 'package:doctor_online/emergencycall/emergency_call.dart';
-import 'package:doctor_online/fourthview/home_bindings.dart';
 import 'package:doctor_online/fourthview/home_page.dart';
-import 'package:doctor_online/login/login_bindings.dart';
 import 'package:doctor_online/login/login_page.dart';
+import 'package:doctor_online/registration/register.dart';
 import 'package:doctor_online/startpage/start_page.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class Routes{
   static final String start="/start_page";
   static final String login = "/login_page";
+  static final String register="/register";
   static final String home="/home_page";
   static final String hospital="/contacthospital_page";
   static final String emergency="/emergency_call";
@@ -28,13 +28,14 @@ class Routes{
     GetPage(
       name: Routes.login,
       page: ()=> LoginPage(),
-      binding: LoginBindings(),
     ),
-
+    GetPage(
+      name: Routes.register,
+      page: ()=> RegistrationPage(),
+    ),
     GetPage(
       name: Routes.home,
       page: ()=> HomePage(),
-      binding: HomeBindings(),
     ),
 
     GetPage(

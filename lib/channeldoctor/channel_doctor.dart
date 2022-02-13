@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:device_apps/device_apps.dart';
+import 'package:launch_review/launch_review.dart';
 
 class ChannelDoctor extends StatelessWidget {
+  late BuildContext scaffoldContext;
   @override
   Widget build(BuildContext context) {
+    scaffoldContext=context;
     return Scaffold(
       appBar: null,
       body: Container(
@@ -68,7 +72,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                   GestureDetector(
                     child: Container(
@@ -91,7 +95,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                   GestureDetector(
                     child: Container(
@@ -114,7 +118,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                 ],
               ),
@@ -147,7 +151,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                   GestureDetector(
                     child: Container(
@@ -170,7 +174,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                   GestureDetector(
                     child: Container(
@@ -193,7 +197,7 @@ class ChannelDoctor extends StatelessWidget {
                         ],
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () { _scanSymptom();},
                   ),
                 ],
               ),
@@ -231,8 +235,8 @@ class ChannelDoctor extends StatelessWidget {
                         )
                       ],
                     ),
-                    onTap: () {
-                      //methid
+                    onTap: ()  {
+                     _scanSymptom();
                     },
                   ),
                 ],
@@ -242,5 +246,16 @@ class ChannelDoctor extends StatelessWidget {
         ),
       ),
     );
+  }
+  Future<void> _scanSymptom() async {
+    bool isInstalled = await DeviceApps.isAppInstalled('com.google.ar.lens');
+    if(isInstalled) {
+      DeviceApps.openApp('com.google.ar.lens');
+    }else{
+      ScaffoldMessenger.of(scaffoldContext).showSnackBar(const SnackBar(
+        content: Text("Sending Message"),
+      ));
+      LaunchReview.launch(androidAppId: "com.google.ar.lens");
+    }
   }
 }

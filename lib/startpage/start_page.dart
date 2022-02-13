@@ -11,7 +11,7 @@ class StartPage extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xff7c94b6),
           image: DecorationImage(
-            image: const AssetImage("assets/images/bg1.png"),
+            image: const AssetImage("assets/images/bg2.png"),
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.5), BlendMode.dstATop),
             fit: BoxFit.cover,
