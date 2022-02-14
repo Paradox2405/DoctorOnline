@@ -12,14 +12,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (controller.progress == true) {
-      ProgressHUD.of(context)!.show();
-    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: null,
-      body: ProgressHUD(
-        child: Center(
+      body:  Center(
           child: Column(
             children: [
               Container(
@@ -158,7 +155,7 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

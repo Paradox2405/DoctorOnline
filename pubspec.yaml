@@ -44,6 +44,7 @@ dependencies:
   get: ^4.3.8
   google_maps_flutter: ^2.1.1
   geolocator: ^8.0.5
+  location: ^4.2.0
   flutter_phone_direct_caller:
     git:
       url: https://github.com/yanisalfian/flutter-phone-direct-caller.git
@@ -51,6 +52,8 @@ dependencies:
   device_apps: ^2.1.1
   launch_review: ^3.0.1
   flutter_progress_hud: ^2.0.0
+  http: ^0.13.4
+  permission_handler: ^8.3.0
 
 dev_dependencies:
   flutter_test:

@@ -10,13 +10,9 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(controller.progress==true) {
-      ProgressHUD.of(context)!.show();
-    }
     return Scaffold(
       appBar: null,
-      body: ProgressHUD(
-        child: Container(
+      body:  Container(
           decoration: BoxDecoration(
             color: const Color(0xff7c94b6),
             image: DecorationImage(
@@ -171,7 +167,7 @@ class RegistrationPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
 
   }

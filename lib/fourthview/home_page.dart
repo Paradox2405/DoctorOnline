@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 
 
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage>{
       body: Center(
         child: Column(
           children: [
-            const Expanded(child:SizedBox(height: 60),),
+            const SizedBox(height: 60),
             Expanded(
               child: GestureDetector(
                 child: Row(
@@ -94,8 +95,14 @@ class _HomePageState extends State<HomePage>{
                     ),
                   ],
                 ),
-                onTap: () {
+                onTap: () async {
+
+                  if (await Permission.location.request().isGranted) {
                   Get.toNamed(Routes.hospital);
+                  }else{
+                  Get.snackbar("Error","Please accept location permission");
+                  }
+
                 },
               ),
             ),
