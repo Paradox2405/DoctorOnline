@@ -4,9 +4,10 @@ import 'package:launch_review/launch_review.dart';
 
 class ChannelDoctor extends StatelessWidget {
   late BuildContext scaffoldContext;
+
   @override
   Widget build(BuildContext context) {
-    scaffoldContext=context;
+    scaffoldContext = context;
     return Scaffold(
       appBar: null,
       body: Container(
@@ -21,28 +22,28 @@ class ChannelDoctor extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               child: SizedBox(
                 height: 100,
               ),
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    child: Text(
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    child: const Text(
                       "SELECT THE CATEGORY THAT\nYOU WANT TO CHANNEL",
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
+            const Expanded(
               child: SizedBox(
                 height: 80,
               ),
@@ -54,11 +55,11 @@ class ChannelDoctor extends StatelessWidget {
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage: AssetImage(
@@ -67,21 +68,23 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Pediatrician")],
+                            children: const [Text("Pediatrician")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -90,21 +93,23 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Neurologist")],
+                            children: const [Text("Neurologist")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -113,17 +118,19 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Dermotologist")],
+                            children: const [Text("Dermotologist")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Expanded(
@@ -133,11 +140,11 @@ class ChannelDoctor extends StatelessWidget {
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -146,21 +153,23 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Psychiatrist")],
+                            children: const [Text("Psychiatrist")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -169,21 +178,23 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Disease Physician")],
+                            children: const [Text("Disease Physician")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                   GestureDetector(
                     child: Container(
                       color: Colors.blueGrey,
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
@@ -192,17 +203,19 @@ class ChannelDoctor extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [Text("Anasthologist")],
+                            children: const [Text("Anasthologist")],
                           )
                         ],
                       ),
                     ),
-                    onTap: () { _scanSymptom();},
+                    onTap: () {
+                      _scanSymptom();
+                    },
                   ),
                 ],
               ),
             ),
-            Expanded(
+            const Expanded(
               child: SizedBox(
                 height: 10,
               ),
@@ -216,7 +229,7 @@ class ChannelDoctor extends StatelessWidget {
                         Container(
                           height: 150,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
                                   image:
                                       AssetImage("assets/images/dentist.jpg"),
@@ -229,16 +242,24 @@ class ChannelDoctor extends StatelessWidget {
                               width: 50,
                               height: 20,
                               color: Colors.orange,
-                              child: Text(">>>",textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
+                              child: const Text(
+                                ">>>",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 20),
+                              ),
                             ),
                           ),
                         )
                       ],
                     ),
-                    onTap: ()  {
-                     _scanSymptom();
+                    onTap: () {
+                      _scanSymptom();
                     },
                   ),
+                  const SizedBox(height: 5,),
                 ],
               ),
             ),
@@ -247,13 +268,14 @@ class ChannelDoctor extends StatelessWidget {
       ),
     );
   }
+
   Future<void> _scanSymptom() async {
     bool isInstalled = await DeviceApps.isAppInstalled('com.google.ar.lens');
-    if(isInstalled) {
+    if (isInstalled) {
       DeviceApps.openApp('com.google.ar.lens');
-    }else{
+    } else {
       ScaffoldMessenger.of(scaffoldContext).showSnackBar(const SnackBar(
-        content: Text("Sending Message"),
+        content: Text("Install App"),
       ));
       LaunchReview.launch(androidAppId: "com.google.ar.lens");
     }

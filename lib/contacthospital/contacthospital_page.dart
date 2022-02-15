@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:doctor_online/data/error.dart';
 import 'package:doctor_online/data/place_response.dart';
 import 'package:doctor_online/data/result.dart';
+import 'package:doctor_online/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -24,8 +25,8 @@ class _ContactHospitalState extends State<ContactHospital> {
   static const String _API_KEY = 'AIzaSyB0e9705Yn35Br4PWUn0OfUNW89DAw7F-U';
   static const String baseUrl =
       'https://maps.googleapis.com/maps/api/place/nearbysearch/json';
-  static double latitude = 7.8731;
-  static double longitude = 80.7718;
+  static double latitude = 6.9271;
+  static double longitude = 79.8612;
   List<Marker> markers = <Marker>[];
   late Error error;
   late List<Result> places;
@@ -63,6 +64,7 @@ class _ContactHospitalState extends State<ContactHospital> {
 
 
   void searchNearby(double latitude, double longitude) async {
+    final GoogleMapController controller = await _controller.future;
     Get.defaultDialog(
         title: "Loading Hospitals...",
         barrierDismissible: false,
@@ -80,10 +82,7 @@ class _ContactHospitalState extends State<ContactHospital> {
               (Position? position) async {
                 latitude=position!.latitude.toDouble();
                 longitude=position.longitude.toDouble();
-
-                final GoogleMapController controller = await _controller.future;
                 controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(latitude,longitude),zoom: 12)));
-
                 Uri url = Uri.parse(
                     '$baseUrl?key=$_API_KEY&location=$latitude,$longitude&radius=10000&keyword=hospitals');
                 print(url.toString());
@@ -94,10 +93,13 @@ class _ContactHospitalState extends State<ContactHospital> {
                   final data = json.decode(response.body);
                   _handleResponse(data);
                 } else {
-                  throw Exception('An error occurred getting places nearby');
+                  Get.snackbar("Error", 'An error occurred getting places nearby');
                 }
                 Get.back();
           });
+    }else{
+      Get.snackbar("Error", "Turn on location services");
+      Get.offAndToNamed(Routes.home);
     }
 
 
@@ -121,7 +123,8 @@ class _ContactHospitalState extends State<ContactHospital> {
                   places[i].geometry.location.long),
               infoWindow: InfoWindow(
                   title: places[i].name, snippet: places[i].vicinity),
-              onTap: () {},
+              onTap: () async {
+              },
             ),
           );
         }

@@ -1,8 +1,10 @@
 import 'package:doctor_online/routes/routes.dart';
+import 'package:doctor_online/startpage/start_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StartPage extends StatelessWidget {
+final StartPageCotroller cotroller = Get.put(StartPageCotroller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

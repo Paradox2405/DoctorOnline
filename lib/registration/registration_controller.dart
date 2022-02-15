@@ -15,13 +15,14 @@ class RegistrationController extends GetxController {
     if (password.text.length >= 6 && username.text.isNotEmpty) {
       if (passwordretype.text == password.text) {
         Get.defaultDialog(
-            title: "Registering...", content: CircularProgressIndicator());
+          barrierDismissible: false,
+            title: "Registering...", content: const CircularProgressIndicator());
         try {
           final newUser = await _auth.createUserWithEmailAndPassword(
               email: email.text, password: password.text);
-          if (newUser != null) {
-            Get.toNamed(Routes.login);
+          if (newUser.user!.uid!=null) {
             Get.back();
+            Get.toNamed(Routes.login);
           }
         } catch (e) {
           print(e);

@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage>{
     firebaseMessaging.bodyCtlr.stream.listen(_changeBody);
     firebaseMessaging.titleCtlr.stream.listen(_changeTitle);
 
+
     super.initState();
   }
 
@@ -98,6 +99,7 @@ class _HomePageState extends State<HomePage>{
                 onTap: () async {
 
                   if (await Permission.location.request().isGranted) {
+
                   Get.toNamed(Routes.hospital);
                   }else{
                   Get.snackbar("Error","Please accept location permission");
